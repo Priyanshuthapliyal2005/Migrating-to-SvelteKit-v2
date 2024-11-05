@@ -5,5 +5,18 @@
   "engine": "jscodeshift",
   "private": false,
   "arguments": [],
-  "meta": {}
+  "meta": {
+    "tags": [
+      "sveltekit",
+      "javascript",
+      "codemod",
+      "error-handling",
+      "ast",
+      "jscodeshift",
+      "migration",
+      "refactoring",
+      "typescript"
+    ],
+    "git": "https://github.com/Priyanshuthapliyal2005/Migrating-to-SvelteKit-v2.git"
+  }
 }
