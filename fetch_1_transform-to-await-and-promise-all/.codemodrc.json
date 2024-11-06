@@ -6,7 +6,7 @@
   "arguments": [],
   "meta": {
     "tags": ["migration", "cookies", "typescript"],
-    "git": "https://github.com/your-repo/your-codemod"
+    "git": "https://github.com/Priyanshuthapliyal2005/Migrating-to-SvelteKit-v2/tree/main/fetch_1_transform-to-await-and-promise-all"
   },
   "include": [
     "**/*.js",
