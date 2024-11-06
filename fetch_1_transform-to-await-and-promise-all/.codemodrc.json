@@ -1,0 +1,48 @@
+{
+  "name": "add-cookie-path",
+  "version": "1.0.0",
+  "engine": "ast-grep",
+  "private": false,
+  "arguments": [],
+  "meta": {
+    "tags": ["migration", "cookies", "typescript"],
+    "git": "https://github.com/your-repo/your-codemod"
+  },
+  "include": [
+    "**/*.js",
+    "**/*.ts",
+    "**/*.tsx",
+    "**/*.jsx",
+    "**/*.cjs",
+    "**/*.mjs"
+  ],
+  "rules": [
+    {
+      "id": "add-path-to-cookies-set",
+      "language": "typescript",
+      "rule": {
+        "kind": "call_expression",
+        "pattern": "cookies.set($1, $2)"
+      },
+      "fix": "cookies.set($1, $2, { path: '/' })"
+    },
+    {
+      "id": "add-path-to-cookies-delete",
+      "language": "typescript",
+      "rule": {
+        "kind": "call_expression",
+        "pattern": "cookies.delete($1, $2)"
+      },
+      "fix": "cookies.delete($1, $2, { path: '/' })"
+    },
+    {
+      "id": "add-path-to-cookies-serialize",
+      "language": "typescript",
+      "rule": {
+        "kind": "call_expression",
+        "pattern": "cookies.serialize($1, $2)"
+      },
+      "fix": "cookies.serialize($1, $2, { path: '/' })"
+    }
+  ]
+}
