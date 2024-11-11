@@ -1,7 +1,7 @@
 import type { Api } from "@codemod.com/workflow";
 
 export async function workflow({ files }: Api) {
-  // Define transformations for cookies methods
+  // Define transformations specifically for cookie path rules
   const transformations = [
     {
       kind: "call_expression",
@@ -20,7 +20,7 @@ export async function workflow({ files }: Api) {
     }
   ];
 
-  // Apply each transformation
+  // Apply each transformation from the list
   for (const { kind, pattern, replacement } of transformations) {
     await files("**/*.ts")
       .jsFam()
@@ -28,11 +28,13 @@ export async function workflow({ files }: Api) {
         rule: {
           kind,
           pattern
-        },
-        fix: replacement
+        }
       })
       .replace(({ getNode }) => {
-        return getNode().text().replace(pattern, replacement);
+        // Log the original statement for verification
+        console.log("Transforming:", getNode().text());
+        // Apply the replacement
+        return replacement;
       });
   }
 }
