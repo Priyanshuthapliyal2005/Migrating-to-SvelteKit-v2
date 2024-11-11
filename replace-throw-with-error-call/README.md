@@ -1,21 +1,19 @@
-This codemod streamlines the migration of throw statements to direct error function calls in SvelteKit codebases. 
-It removes the throw keyword, ensuring your code aligns with modern error handling practices in SvelteKit.
+
 
 
 ## Example
+This codemod turns X into Y. It also does Z.
+Note: this is a contrived example. Please modify it.
 
 ### Before
 
 ```ts
-import { error } from '@sveltejs/kit';
-// Remove the throw keyword from the code
-throw error(<status_code>, <error_message>);
+const toReplace = "hello";
 ```
 
 ### After
 
 ```ts
-import { error } from '@sveltejs/kit';
-error(<status_code>, <error_message>);
+const replacement = "hello";
 ```
-This codemod facilitates a smooth transition from throw statements to direct error function calls, enhancing your SvelteKit codebase's error handling approach while preserving existing functionality.
+

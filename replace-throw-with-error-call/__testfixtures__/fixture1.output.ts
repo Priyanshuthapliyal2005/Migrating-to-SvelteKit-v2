@@ -1,2 +1,1 @@
-import { error } from '@sveltejs/kit';
-error($STATUS, '$MESSAGE');
+const replacement = "hello";
