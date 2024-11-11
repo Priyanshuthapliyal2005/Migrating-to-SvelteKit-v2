@@ -10,7 +10,7 @@ throw error(200, 'went wrong');
 import { redirect } from '@sveltejs/kit';
 
 // Redirects to the specified URL with a 301 status code
-redirect(301, '/new-location');
+throw redirect(301, '/new-location');
 
 
 import { redirect } from '@sveltejs/kit';
@@ -23,4 +23,4 @@ if (!user.isAuthenticated) {
 import { redirect } from '@sveltejs/kit';
 
 // Redirects to another page with a temporary 302 status
-redirect(302, '/temporary-location');
+throw redirect(302, '/temporary-location');
