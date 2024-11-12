@@ -5,8 +5,8 @@ export async function workflow({ files }: Api) {
   const transformations = [
     {
       kind: "lexical_declaration",
-      pattern: "const path = base + $A;",
-      replacement: "const path = $A;",
+      pattern: "const path = base + resolvePath('$PATH',$A);",
+      replacement: "const path = resolveRoute('$PATH',$A);",
     },
     {
       kind: "import_statement",
