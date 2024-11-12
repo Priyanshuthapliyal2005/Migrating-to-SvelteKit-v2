@@ -11,7 +11,7 @@ export async function workflow({ files }: Api) {
     {
       kind: "import_statement",
       pattern: "import { resolvePath } from '@sveltejs/kit';",
-      replacement: "import { resolvePath } from '$app/paths';",
+      replacement: "import { resolveRoute } from '$app/paths';",
     }
   ];
 
