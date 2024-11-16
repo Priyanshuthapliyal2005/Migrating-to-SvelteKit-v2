@@ -1,19 +1,26 @@
+This codemod updates import paths and ensures compatibility with changes in library structures.
+In this example, it modifies the import statement for vitePreprocess to reflect updates in the library's API.
 
-
-
-## Example
-This codemod turns X into Y. It also does Z.
-Note: this is a contrived example. Please modify it.
-
+### EXAMPLE 
 ### Before
 
 ```ts
-const toReplace = "hello";
+import { vitePreprocess } from '@sveltejs/kit/vite';
+
+export default {
+  preprocess: vitePreprocess(),
+};
 ```
 
 ### After
 
 ```ts
-const replacement = "hello";
+// svelte.config.js
+import { vitePreprocess } from '@sveltejs/vite-plugin-svelte';
+
+export default {
+  preprocess: vitePreprocess(),
+};
+
 ```
 
