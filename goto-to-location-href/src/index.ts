@@ -1,33 +1,42 @@
 import type { Api } from "@codemod.com/workflow";
 
 export async function workflow({ files }: Api) {
-  // Define the transformations
+  // Define transformations for `goto($A)` calls with specific URL patterns
   const transformations = [
     {
-      id: "goto-to-location-href",
-      language: "js",
-      rule: {
-        pattern: "goto($A)", // Match the function call to goto
-        regex: '^https?:\\/\\/', // Check if $A starts with http:// or https://
-      },
-      fix: "window.location.href = $A;", // Replace with window.location.href assignment
+      kind: "call_expression",
+      pattern: "goto($A)",
+      regex: "http://",
+      replacement: "window.location.href = $A;"
     },
+    {
+      kind: "call_expression",
+      pattern: "goto($A)",
+      regex: "https://",
+      replacement: "window.location.href = $A;"
+    }
   ];
 
-  // Apply each transformation
-  for (const { id, language, rule, fix } of transformations) {
-    await files("**/*.{js,ts,tsx,jsx}")
+  // Apply each transformation from the list
+  for (const { kind, pattern, regex, replacement } of transformations) {
+    await files("**/*.ts")
       .jsFam()
       .astGrep({
-        id,
-        language,
-        rule,
+        rule: {
+          kind,
+          pattern
+        }
+      })
+      .filter(({ getNode }) => {
+        const node = getNode();
+        const argument = node.getArguments()?.[0]?.text(); // Access the argument of `goto($A)`
+        return argument && new RegExp(regex).test(argument); // Ensure the argument matches the regex
       })
       .replace(({ getNode }) => {
-        // Log the transformation for debugging
+        // Log the original statement for verification
         console.log("Transforming:", getNode().text());
-        // Return the fixed code
-        return fix;
+        // Apply the replacement
+        return replacement;
       });
   }
 }
