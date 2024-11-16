@@ -5,5 +5,17 @@
   "engine": "workflow",
   "private": false,
   "arguments": [],
-  "meta": {}
+  "meta": {
+    "tags": [
+      "sveltekit",
+      "typescript",
+      "javascript",
+      "codemod",
+      "error-handling",
+      "ast",
+      "migration",
+      "refactoring"
+    ],
+    "git": "https://github.com/Priyanshuthapliyal2005/Migrating-to-SvelteKit-v2.git"
+  }
 }
