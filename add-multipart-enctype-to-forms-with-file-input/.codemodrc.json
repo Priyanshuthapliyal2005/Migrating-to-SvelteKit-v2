@@ -1,0 +1,21 @@
+{
+  "$schema": "https://codemod-utils.s3.us-west-1.amazonaws.com/configuration_schema.json",
+  "name": "add-multipart-enctype-to-forms-with-file-input",
+  "version": "1.0.0",
+  "engine": "workflow",
+  "private": false,
+  "arguments": [],
+  "meta": {
+    "tags": [
+      "sveltekit",
+      "typescript",
+      "javascript",
+      "codemod",
+      "add-path",
+      "ast-grep",
+      "migration",
+      "refactoring"
+    ],
+    "git": "https://github.com/Priyanshuthapliyal2005/Migrating-to-SvelteKit-v2.git"
+  }
+}
