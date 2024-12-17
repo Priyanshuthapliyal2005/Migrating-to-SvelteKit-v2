@@ -1,4 +1,3 @@
-```markdown
 # Replace Throw Statements with Direct Function Calls
 
 This codemod simplifies error handling and redirects in your TypeScript project by replacing `throw error()` and `throw redirect()` statements with direct calls to `error()` and `redirect()`. This change aligns with modern practices and results in cleaner, more readable code.
