@@ -22,3 +22,16 @@ To apply this codemod, run the workflow script on your TypeScript files. Ensure 
 cookies.set('session', 'abc123');
 cookies.delete('user');
 cookies.serialize('token', 'xyz789');
+
+
+```
+
+### After
+
+```ts
+cookies.set('session', 'abc123', { path: '/' });
+cookies.delete('user', { path: '/' });
+cookies.serialize('token', 'xyz789', { path: '/' });
+
+
+```
