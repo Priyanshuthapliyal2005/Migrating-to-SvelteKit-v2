@@ -44,11 +44,16 @@ To use any of these codemods, navigate into the desired codemod's directory and 
 
 ## Example
 
+To run the transform scripts use codemod command below:
 ```bash
-cd add-cookie-path-to-all-methods
-#run the codemod locally
-npx codemod@0.13.11 add-cookie-path-to-all-methods
+$ npx codemod <transform> --target <path> [...options]
 ```
+transform: name of transform, see available transforms below.
+
+path: directory to transform. defaults to the current directory.
+
+See the codemod CLI doc for a full list of available commands. 
+All codemods are also available in the Codemod Registry.
 
 ## Contribution
 
